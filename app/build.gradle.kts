@@ -69,7 +69,7 @@ dependencies {
     implementation("androidx.core:core-ktx:1.13.1")
 
     // Supabase BOM 3.3.0 (Android artifacts)
-    dependencies {
+   dependencies {
     implementation(platform("io.github.jan-tennert.supabase:bom:2.5.4"))
 
     implementation("io.github.jan-tennert.supabase:postgrest-kt")
