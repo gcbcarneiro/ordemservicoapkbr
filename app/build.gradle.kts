@@ -68,12 +68,12 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.0")
     implementation("androidx.core:core-ktx:1.13.1")
 
-    // ✅ SUPABASE (CORRETO)
-    implementation(platform("io.github.jan-tennert.supabase:bom:2.5.4"))
-    implementation("io.github.jan-tennert.supabase:postgrest-kt")
-    implementation("io.github.jan-tennert.supabase:auth-kt")
-    implementation("io.github.jan-tennert.supabase:storage-kt")
-    implementation("io.github.jan-tennert.supabase:realtime-kt")
+    // ✅ SUPABASE (Versões fixas para evitar erro de resolução do BOM)
+    val supabase_version = "2.5.4"
+    implementation("io.github.jan-tennert.supabase:postgrest-kt:$supabase_version")
+    implementation("io.github.jan-tennert.supabase:auth-kt:$supabase_version")
+    implementation("io.github.jan-tennert.supabase:storage-kt:$supabase_version")
+    implementation("io.github.jan-tennert.supabase:realtime-kt:$supabase_version")
 
     // Ktor
     implementation("io.ktor:ktor-client-android:2.3.12")
