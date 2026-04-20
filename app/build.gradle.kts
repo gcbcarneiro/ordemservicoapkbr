@@ -69,11 +69,14 @@ dependencies {
     implementation("androidx.core:core-ktx:1.13.1")
 
     // Supabase BOM 3.3.0 (Android artifacts)
-    implementation(platform("io.github.jan-tennert.supabase:bom:3.3.0"))
-    implementation("io.github.jan-tennert.supabase:postgrest-kt-android")
-    implementation("io.github.jan-tennert.supabase:auth-kt-android")
-    implementation("io.github.jan-tennert.supabase:storage-kt-android")
-    implementation("io.github.jan-tennert.supabase:realtime-kt-android")
+    dependencies {
+    implementation platform("io.github.jan-tennert.supabase:bom:2.5.4") // exemplo
+
+    implementation "io.github.jan-tennert.supabase:postgrest-kt"
+    implementation "io.github.jan-tennert.supabase:auth-kt"
+    implementation "io.github.jan-tennert.supabase:storage-kt"
+    implementation "io.github.jan-tennert.supabase:realtime-kt"
+}
 
     // Ktor (necessário para Supabase)
     implementation("io.ktor:ktor-client-android:2.3.12")
