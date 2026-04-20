@@ -68,8 +68,8 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.0")
     implementation("androidx.core:core-ktx:1.13.1")
 
-    // ✅ SUPABASE (Versões fixas para evitar erro de resolução do BOM)
-    val supabase_version = "2.5.4"
+    // ✅ SUPABASE (Versão 3.0.2 - Mais recente e estável no Maven Central)
+    val supabase_version = "3.0.2"
     implementation("io.github.jan-tennert.supabase:postgrest-kt:$supabase_version")
     implementation("io.github.jan-tennert.supabase:auth-kt:$supabase_version")
     implementation("io.github.jan-tennert.supabase:storage-kt:$supabase_version")
