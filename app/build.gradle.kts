@@ -53,7 +53,7 @@ android {
     }
 }
 
-val supabaseVersion = "2.6.1"
+val supabaseVersion = "2.5.4"
 val ktorVersion = "2.3.12"
 val composeVersion = "2024.04.01"
 
@@ -77,10 +77,10 @@ dependencies {
 
     // Supabase
     // Supabase (versão explícita em cada módulo)
-    implementation("io.github.jan-tennert.supabase:postgrest-kt:2.6.1")
-    implementation("io.github.jan-tennert.supabase:auth-kt:2.6.1")
-    implementation("io.github.jan-tennert.supabase:storage-kt:2.6.1")
-    implementation("io.github.jan-tennert.supabase:realtime-kt:2.6.1")
+    implementation("io.github.jan-tennert.supabase:postgrest-kt:2.5.4")
+    implementation("io.github.jan-tennert.supabase:auth-kt:2.5.4")
+    implementation("io.github.jan-tennert.supabase:storage-kt:2.5.4")
+    implementation("io.github.jan-tennert.supabase:realtime-kt:2.5.4")
 
     // Ktor (necessário para o Supabase)
     implementation("io.ktor:ktor-client-android:$ktorVersion")
