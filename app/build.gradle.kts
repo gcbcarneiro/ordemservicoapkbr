@@ -7,7 +7,6 @@ plugins {
     id("org.jetbrains.kotlin.plugin.compose")
 }
 
-// Lê credenciais do local.properties (local) ou variáveis de ambiente (CI)
 val localProperties = Properties()
 val localPropertiesFile = rootProject.file("local.properties")
 if (localPropertiesFile.exists()) {
@@ -27,7 +26,6 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
-
         buildConfigField("String", "SUPABASE_URL", "\"${getSecret("SUPABASE_URL")}\"")
         buildConfigField("String", "SUPABASE_ANON_KEY", "\"${getSecret("SUPABASE_ANON_KEY")}\"")
     }
@@ -53,13 +51,9 @@ android {
     }
 }
 
-val supabaseVersion = "2.5.4"
-val ktorVersion = "2.3.12"
-val composeVersion = "2024.04.01"
-
 dependencies {
     // Compose BOM
-    implementation(platform("androidx.compose:compose-bom:$composeVersion"))
+    implementation(platform("androidx.compose:compose-bom:2024.04.01"))
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
@@ -68,33 +62,26 @@ dependencies {
     implementation("androidx.activity:activity-compose:1.9.0")
     debugImplementation("androidx.compose.ui:ui-tooling")
 
-    // Navigation
+    // Navigation + Lifecycle
     implementation("androidx.navigation:navigation-compose:2.7.7")
-
-    // Lifecycle
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.0")
+    implementation("androidx.core:core-ktx:1.13.1")
 
-    // Supabase
-    // Supabase (versão explícita em cada módulo)
-    implementation("io.github.jan-tennert.supabase:postgrest-kt:2.5.4")
-    implementation("io.github.jan-tennert.supabase:auth-kt:2.5.4")
-    implementation("io.github.jan-tennert.supabase:storage-kt:2.5.4")
-    implementation("io.github.jan-tennert.supabase:realtime-kt:2.5.4")
+    // Supabase BOM 3.3.0 (Android artifacts)
+    implementation(platform("io.github.jan-tennert.supabase:bom:3.3.0"))
+    implementation("io.github.jan-tennert.supabase:postgrest-kt-android")
+    implementation("io.github.jan-tennert.supabase:auth-kt-android")
+    implementation("io.github.jan-tennert.supabase:storage-kt-android")
+    implementation("io.github.jan-tennert.supabase:realtime-kt-android")
 
-    // Ktor (necessário para o Supabase)
-    implementation("io.ktor:ktor-client-android:$ktorVersion")
-    implementation("io.ktor:ktor-client-core:$ktorVersion")
+    // Ktor (necessário para Supabase)
+    implementation("io.ktor:ktor-client-android:2.3.12")
 
-    // Serialization
+    // Serialization + Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.1")
-
-    // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
 
     // Coil para imagens
     implementation("io.coil-kt:coil-compose:2.6.0")
-
-    // Core
-    implementation("androidx.core:core-ktx:1.13.1")
 }
